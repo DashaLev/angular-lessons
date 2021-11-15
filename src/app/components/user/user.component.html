@@ -1,0 +1,24 @@
+<div>
+  <h2>{{user.name}}, ID:{{user.id}}</h2>
+  <div>
+    Contact info:
+    <ul>
+      <li>email: {{user.email}};</li>
+      <li>phone: {{user.phone}};</li>
+      <li>website: {{user.website}};</li>
+    </ul>
+  </div>
+  <div>
+     Address: {{user.address.city}}, {{user.address.street}}, {{user.address.suite}};
+  </div>
+  <div>
+    <h4>Company: {{user.company.name}}</h4>
+    <p>{{user.company.catchPhrase}}</p>
+  </div>
+
+  <!-- classwork -->
+  <div>
+    <h3>Posts by User with ID:{{user.id}}</h3>
+    <app-post *ngFor="let post of postsUser" [post]="post"></app-post>
+  </div>
+</div>
