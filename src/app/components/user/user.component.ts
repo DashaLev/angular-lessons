@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Post } from 'src/app/models/Post';
-import { User } from 'src/app/models/User';
-import { PostService } from "../../services/post.service";
+import { IUser } from 'src/app/interfaces/user.interface';
 
 @Component({
   selector: 'app-user',
@@ -12,15 +10,10 @@ import { PostService } from "../../services/post.service";
 export class UserComponent implements OnInit {
 
   @Input()
-  user: User;
-
-  // classwork
-  postsUser: Post[] = [];
-
-  constructor(private postService: PostService) {}
+  user: IUser;
 
   ngOnInit(): void {
-    this.postService.getPostsByUserId(this.user.id).subscribe(value => this.postsUser = value);
+
   }
 
 }

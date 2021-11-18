@@ -1,30 +1,30 @@
-interface Geo {
+interface IGeo {
   lat: string;
   lng: string;
 }
 
-interface Address {
+interface IAddress {
   street: string;
   suite: string;
   city: string;
   zipcode: string;
-  geo: Geo;
+  geo: IGeo;
 
 }
 
-interface Company {
+interface ICompany {
   name: string;
   catchPhrase: string;
   bs: string;
 }
 
-export interface User {
+export interface IUser {
   id: number;
   name: string;
   username: string;
   email: string;
   phone: string;
   website: string;
-  address: Address;
-  company: Company
+  address: IAddress;
+  company: ICompany
 }
