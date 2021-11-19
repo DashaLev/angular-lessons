@@ -13,6 +13,8 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UserResolveService } from './services/user-resolve.service';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { UsersFormComponent } from './components/users-form/users-form.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,26 +26,35 @@ import { CommentComponent } from './components/comment/comment.component';
     CommentsComponent,
     UserDetailsComponent,
     PostDetailsComponent,
-    CommentComponent
+    CommentComponent,
+    UsersFormComponent
   ],
     imports: [
         BrowserModule,
         HttpClientModule,
         RouterModule.forRoot([
-          {path: 'users',
-            component: UsersComponent,
-            children: [
-              {path: ':id', component: UserDetailsComponent,
-                resolve: {data: UserResolveService}},
-            ]},
-          {path: 'posts',
-            component: PostsComponent,
-            children: [
-              {path: ':id', component: PostDetailsComponent}
-            ]
-          },
-          {path: 'comments', component: CommentsComponent},
-        ])
+            {
+                path: 'users',
+                component: UsersComponent,
+            },
+            {
+                path: 'users/:id',
+                component: UserDetailsComponent,
+                resolve: { data: UserResolveService }
+            },
+            {
+                path: 'posts',
+                component: PostsComponent,
+                children: [
+                    { path: ':id',
+                      component: PostDetailsComponent
+                    }
+                ]
+            },
+            { path: 'comments', component: CommentsComponent },
+            { path: 'users-select', component: UsersFormComponent }
+        ]),
+        ReactiveFormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

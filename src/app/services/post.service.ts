@@ -21,4 +21,8 @@ export class PostService {
     return this.httpClient.get<IPost>(this.url + '/' + id)
   }
 
+  getPostsByUserId(id: number): Observable<IPost[]> {
+    return this.httpClient.get<IPost[]>(this.url + '?userId=' + id)
+  }
+
 }
