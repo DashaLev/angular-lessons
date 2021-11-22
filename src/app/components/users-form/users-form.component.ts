@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { IUser } from 'src/app/interfaces/user.interface';
@@ -17,7 +17,7 @@ export class UsersFormComponent implements OnInit {
   user: IUser;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService,
-              private router: Router, ) { }
+              private router: Router) { }
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
@@ -31,6 +31,5 @@ export class UsersFormComponent implements OnInit {
     const id = this.myForm.controls['userId'].value;
 
     this.router.navigate([`users/${id}`],  {state: this.user});
-
   }
 }

@@ -1,25 +1,23 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { IUser } from 'src/app/interfaces/user.interface';
-import {ActivatedRoute, Router} from "@angular/router";
-import {ActiveUserService} from "../../services/active-user.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ActiveUserService } from "../../services/active-user.service";
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
 
   @Input()
   user: IUser;
   path: number;
   activeUser:number;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private activeUserService: ActiveUserService) {
-  }
-
-  ngOnInit(): void {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute,
+              private activeUserService: ActiveUserService) {
   }
 
   navToDetails() {
