@@ -15,6 +15,7 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
 import { CommentComponent } from './components/comment/comment.component';
 import { UsersFormComponent } from './components/users-form/users-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { StringTypePipe } from './pipes/string-type.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     UserDetailsComponent,
     PostDetailsComponent,
     CommentComponent,
-    UsersFormComponent
+    UsersFormComponent,
+    StringTypePipe
   ],
     imports: [
         BrowserModule,
@@ -36,11 +38,13 @@ import {ReactiveFormsModule} from "@angular/forms";
             {
                 path: 'users',
                 component: UsersComponent,
-            },
-            {
-                path: 'users/:id',
-                component: UserDetailsComponent,
-                resolve: { data: UserResolveService }
+                children: [
+                  {
+                    path: ':id',
+                    component: UserDetailsComponent,
+                    resolve: { data: UserResolveService }
+                  }
+                ]
             },
             {
                 path: 'posts',

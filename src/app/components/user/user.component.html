@@ -1,4 +1,8 @@
+<!--<p>-->
+<!--  {{user.name}}-->
+<!--  <a routerLink="{{user.id}}">Details</a>-->
+<!--</p>-->
 <p>
-  {{user.name}}
-  <a routerLink="{{user.id}}">Details</a>
+  {{user|stringType}}
+  <button (click)="navToDetails()" *ngIf="activeUser !== user.id">details</button>
 </p>
